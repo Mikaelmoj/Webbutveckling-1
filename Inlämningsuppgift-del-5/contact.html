@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/be32d2f047.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar">
+        <a href="index.html"><h2>Webbutveckling 1</h2></a>
+        <ul>
+          <li>
+            <a href="/index.html"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+          <li>
+            <a href="/delmoment-1.html"
+              ><i class="fa-solid fa-folder"></i> Delmoment 1</a
+            >
+          </li>
+          <li>
+            <a href="delmoment-2.html"
+              ><i class="fa-solid fa-folder"></i> Delmoment 2</a
+            >
+          </li>
+          <li>
+            <a href="delmoment-3.html"
+              ><i class="fa-solid fa-folder"></i> Delmoment 3</a
+            >
+          </li>
+          <li>
+            <a href="delmoment-4.html"
+              ><i class="fa-solid fa-folder"></i> Delmoment 4</a
+            >
+          </li>
+          <li>
+            <a href="delmoment-5.html"
+              ><i class="fa-solid fa-folder"></i> Delmoment 5</a
+            >
+          </li>
+          <li class="active">
+            <a href="contact.html"
+              ><i class="fas fa-address-book"></i>Contact</a
+            >
+          </li>
+        </ul>
+        <div class="social_media">
+          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+          <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+      <div class="main_content">
+        <div class="header">Welcome!! Have a nice day.</div>
+        <div class="container2">
+          <!--Förmulärt-->
+          <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>KONTAKTA MIG</h3>
+            <input type="text" id="name" placeholder="Namn" required />
+            <input type="text" id="email" placeholder="E post" required />
+
+            <input
+              type="text"
+              id="phone"
+              placeholder="Telefon nummer"
+              required
+            />
+
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Hur kan jag hjälpa dig?"
+            ></textarea>
+            <button type="submit">Skicka</button>
+          </form>
+        </div>
+        <!--Jag har använd smtpjs för att hantera emails med hjälp av javascript.-->
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+          function sendEmail() {
+            Email.send({
+              Host: "smtp.gmail.com",
+              Username: "mikaelmoj@gmail.com",
+              Password: "",
+              To: "mikaelmoj@gmail.com",
+              From: document.getElementById("email").value,
+              Subject: "New Contact Form Enquiry",
+              Body:
+                "Name: " +
+                document.getElementById("name").value +
+                "<br> Email: " +
+                document.getElementById("email").value +
+                "<be> Phone no: " +
+                document.getElementById("phone").value +
+                "<br> Message:" +
+                document.getElementById("message").value,
+            }).then((message) => alert("Massage Sent Succesfully"));
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
